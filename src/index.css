@@ -1,0 +1,19 @@
+body{
+    background-color: rgb(200,200,200,0.1);
+}
+
+.col:hover>.red,
+.col:hover>.black {
+    display: flex;
+    transition-duration: 500ms;
+}
+
+.digi:hover>.digiBar,
+.tool:hover>.toolBar,
+.personal:hover>.personalBar,
+.car:hover>.carBar,
+.service:hover>.serviceBar,
+.home:hover>.homeBar,
+.bb:hover>.a {
+    display: block;
+}
