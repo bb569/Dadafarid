@@ -5,10 +5,11 @@ import { getProduct } from "../../services/api";
 import { Products } from "../../servers/Server";
 import { useShoppingCartContext } from "../../context/ShoppingCartContext";
 import { Link } from "react-router-dom";
+import { products } from "../../pages/store/Store";
 
 type cart = {
     id: number,
-    qty: number
+    qty: number,
 }
 function Cartitem({ id, qty }: cart) {
     const { deHandelQty, handelQty, handelRemove } = useShoppingCartContext()
@@ -18,11 +19,15 @@ function Cartitem({ id, qty }: cart) {
             setproduct(data)
         })
     }, []);
+    
+     
+
     return (
         <div className="flex flex-row-reverse">
-            <Link to={`/product/${id}`}>
-                <img className="mr-36 ml-4 w-32 my-5 h-32 " src={product?.image} alt="" />
-            </Link>
+   <Link to={`/product/${id}`}>
+            <img className="mr-36 ml-4 w-32 my-5 h-32 " src={product?.image} alt="" />
+        </Link>
+
             <div>
                 <h1>{product?.title}</h1>
                 <h1>{product?.price}</h1>

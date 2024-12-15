@@ -1,4 +1,3 @@
-import React from 'react'
 import Enamad from './enamad'
 
 function Footer() {

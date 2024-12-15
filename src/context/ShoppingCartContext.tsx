@@ -2,14 +2,14 @@ import { createContext, useContext, useEffect, useState } from "react"
 import { useLocalStorage } from "../hooks/useLocalStorage"
 import { Login } from "../services/api"
 import { useNavigate } from "react-router-dom"
-
 type child = {
   children: React.ReactNode,
-
+ 
 }
 type CartItem = {
   id: number,
-  qty: number, 
+  qty: number,
+   
 }
 type item = {
   cartItems: CartItem[],
@@ -19,6 +19,7 @@ type item = {
   handelLogin: (username: string, password: string) => void
   handelOut: () => void
   bascetTotal: number
+  bascetprice:number
   isLogin: boolean
   getQty: (id: number) => number
 }
@@ -28,6 +29,7 @@ export const ShoppingCartContext = createContext({} as item)
 export const useShoppingCartContext = () => {
   return useContext(ShoppingCartContext)
 }
+
 function ShoppingCartProvider({ children }: child) {
   const [cartItems, setcartItems] = useLocalStorage<CartItem[]>("cartItems", []);
    const handelQty = (id: number) => {
@@ -47,6 +49,9 @@ function ShoppingCartProvider({ children }: child) {
     })
 
   }
+ function price(){
+  
+ }
   const deHandelQty = (id: number) => {
     setcartItems((currentItem) => {
       let selectedItem = cartItems.find((item) => item.id == id)
@@ -73,6 +78,7 @@ function ShoppingCartProvider({ children }: child) {
     );
   }
   const bascetTotal = cartItems.reduce((totalQty, item) => totalQty + item.qty, 0)
+  const bascetprice = cartItems.reduce((totalQty, price) => totalQty + price.id * price.qty, 0)
 
   const [isLogin, setIsLogin] = useState(false);
  const navigate = useNavigate()
@@ -99,7 +105,7 @@ function ShoppingCartProvider({ children }: child) {
     localStorage.removeItem("token")
   }
   return (
-    <ShoppingCartContext.Provider value={{handelOut,handelLogin, isLogin, cartItems, handelQty, deHandelQty, getQty, handelRemove, bascetTotal }}>
+    <ShoppingCartContext.Provider value={{ handelOut,handelLogin, isLogin, cartItems, handelQty, deHandelQty, getQty, handelRemove, bascetTotal,bascetprice }}>
       {children}
     </ShoppingCartContext.Provider>
   )

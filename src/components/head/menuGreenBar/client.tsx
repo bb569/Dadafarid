@@ -1,7 +1,7 @@
 "use client"
 import "./client"
-import React, { useEffect, useState } from 'react'
-import RedGreenBar from './redGreenbar/RedGreenBar'
+import { useEffect, useState } from 'react'
+
 import { Link } from "react-router-dom"
 import axios from "axios"
 export interface dataBase1 {

@@ -6,7 +6,7 @@ export interface DataBase {
     href: string
     id: number
 }
-function Menu(prop: any) {
+function Menu() {
     const [data, setdata] = useState([]);
     useEffect(() => {
         axios("http://localhost:7000/dataBase").then((result) => {

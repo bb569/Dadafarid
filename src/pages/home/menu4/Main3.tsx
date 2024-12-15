@@ -1,4 +1,3 @@
-import React from 'react'
 import H1Menu4 from './h1Main34/H1Main3'
 
 function Main3() {

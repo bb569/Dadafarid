@@ -1,9 +1,9 @@
 import { Navigate, Route, Routes } from "react-router-dom"
 import Home from "./pages/home/home"
+import Bank from './pages/bank/Bank'
 import Layout from "./components/layout/Layout"
 import Product from "./pages/product/Product"
-import Cart from "./pages/cart/Cart"
-import  { useShoppingCartContext } from "./context/ShoppingCartContext"
+import { useShoppingCartContext } from "./context/ShoppingCartContext"
 import Store1 from "./pages/products/accessoris/page"
 import Store2 from "./pages/products/assemblies/page"
 import Store3 from "./pages/products/battery/page"
@@ -32,53 +32,53 @@ import Store25 from "./pages/products/spare/page"
 import Store26 from "./pages/products/stationery/page"
 import Store27 from "./pages/products/tablet/page"
 import Store28 from "./pages/products/tool/page"
-import PrivateRoute from "./components/privateRoute/PrivateRoute"
 import Login from "./pages/Log/Login"
+import { Cart } from "./pages/cart/Cart"
 function App() {
-const {isLogin} = useShoppingCartContext()
+  const { isLogin } = useShoppingCartContext()
   return (
     <>
-    
 
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/product/:id" element={<Product />}></Route>
-            <Route path="/Log" element={isLogin? <Navigate to="/"/>:<Login/>}></Route>
-            <Route element={<PrivateRoute />}>
-              <Route path="/cart" element={<Cart />}></Route>
-            </Route>
-            <Route path="/products/accessoris" element={<Store1 />}></Route>
-            <Route path="/products/assemblies" element={<Store2 />}></Route>
-            <Route path="/products/battery" element={<Store3 />}></Route>
-            <Route path="/products/bracelet" element={<Store4 />}></Route>
-            <Route path="/products/car" element={<Store5 />}></Route>
-            <Route path="/products/carpet" element={<Store6 />}></Route>
-            <Route path="/products/clothes" element={<Store7 />}></Route>
-            <Route path="/products/decorations" element={<Store8 />}></Route>
-            <Route path="/products/digital" element={<Store9 />}></Route>
-            <Route path="/products/earrings" element={<Store10 />}></Route>
-            <Route path="/products/glasses" element={<Store11 />}></Route>
-            <Route path="/products/home" element={<Store12 />}></Route>
-            <Route path="/products/industrial" element={<Store13 />}></Route>
-            <Route path="/products/laptop" element={<Store14 />}></Route>
-            <Route path="/products/legal" element={<Store15 />}></Route>
-            <Route path="/products/matrial" element={<Store16 />}></Route>
-            <Route path="/products/necklace" element={<Store17 />}></Route>
-            <Route path="/products/ornaments" element={<Store18 />}></Route>
-            <Route path="/products/personal" element={<Store19 />}></Route>
-            <Route path="/products/phone" element={<Store20 />}></Route>
-            <Route path="/products/ring" element={<Store21 />}></Route>
-            <Route path="/products/service" element={<Store22 />}></Route>
-            <Route path="/products/shoes" element={<Store23 />}></Route>
-            <Route path="/products/sofa" element={<Store24 />}></Route>
-            <Route path="/products/spare" element={<Store25 />}></Route>
-            <Route path="/products/stationery" element={<Store26 />}></Route>
-            <Route path="/products/tablet" element={<Store27 />}></Route>
-            <Route path="/products/tool" element={<Store28 />}></Route>
-            <Route path="/products/watch" element={<Store28 />}></Route>
-          </Routes>
-        </Layout>
+
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/product/:id" element={<Product />}></Route>
+          <Route path="/Log" element={isLogin ? <Navigate to="/cart" /> : <Login />}></Route>
+            <Route path="/Log" element={<Login />}></Route>
+          <Route path="/cart" element={<Cart />}></Route>
+          <Route path="/bank" element={isLogin ? <Bank /> : <Navigate to="/Log" />}></Route>
+          <Route path="/products/accessoris" element={<Store1 />}></Route>
+          <Route path="/products/assemblies" element={<Store2 />}></Route>
+          <Route path="/products/battery" element={<Store3 />}></Route>
+          <Route path="/products/bracelet" element={<Store4 />}></Route>
+          <Route path="/products/car" element={<Store5 />}></Route>
+          <Route path="/products/carpet" element={<Store6 />}></Route>
+          <Route path="/products/clothes" element={<Store7 />}></Route>
+          <Route path="/products/decorations" element={<Store8 />}></Route>
+          <Route path="/products/digital" element={<Store9 />}></Route>
+          <Route path="/products/earrings" element={<Store10 />}></Route>
+          <Route path="/products/glasses" element={<Store11 />}></Route>
+          <Route path="/products/home" element={<Store12 />}></Route>
+          <Route path="/products/industrial" element={<Store13 />}></Route>
+          <Route path="/products/laptop" element={<Store14 />}></Route>
+          <Route path="/products/legal" element={<Store15 />}></Route>
+          <Route path="/products/matrial" element={<Store16 />}></Route>
+          <Route path="/products/necklace" element={<Store17 />}></Route>
+          <Route path="/products/ornaments" element={<Store18 />}></Route>
+          <Route path="/products/personal" element={<Store19 />}></Route>
+          <Route path="/products/phone" element={<Store20 />}></Route>
+          <Route path="/products/ring" element={<Store21 />}></Route>
+          <Route path="/products/service" element={<Store22 />}></Route>
+          <Route path="/products/shoes" element={<Store23 />}></Route>
+          <Route path="/products/sofa" element={<Store24 />}></Route>
+          <Route path="/products/spare" element={<Store25 />}></Route>
+          <Route path="/products/stationery" element={<Store26 />}></Route>
+          <Route path="/products/tablet" element={<Store27 />}></Route>
+          <Route path="/products/tool" element={<Store28 />}></Route>
+          <Route path="/products/watch" element={<Store28 />}></Route>
+        </Routes>
+      </Layout>
 
     </>
   )

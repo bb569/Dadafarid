@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 import Container from "../container/container"
 import { useShoppingCartContext } from "../../context/ShoppingCartContext"
-
 import Menu from "./drawerMenu"
 import GreenBar from "./menuGreenBar/GreenBar"
 function Navbar() {

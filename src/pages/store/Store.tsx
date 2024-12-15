@@ -6,9 +6,9 @@ import Productitem from '../../components/productitem/Productitem'
 import { useEffect, useState } from 'react'
 import { getProducts } from '../../services/api';
 import { Products } from '../../servers/Server';
-
+export const [products, setproducts] = useState<Products[]>([]);
+  
 function Store() {
-  const [products, setproducts] = useState<Products[]>([]);
   useEffect(() => {
    getProducts().then((result)=>{
    setproducts(result)

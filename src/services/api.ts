@@ -1,15 +1,26 @@
 import axios from "axios";
 
-const client = axios.create({
+export const client = axios.create({
     baseURL:"http://localhost:7000"
 })
 export async function Login(username:string,password:string) {
-    const {data} = await client({
+    // const {data} = 
+    await client({
         method:"POST",
         url:"/login",
         data:{
             username,
             password,
+        }
+    })
+    
+}
+export async function price(price:number) {
+    // const {data} = 
+    await client({
+        method:"POST",
+            data:{
+            price
         }
     })
     

@@ -1,5 +1,4 @@
 import "./client"
-import React, { useEffect, useState } from 'react'
 import RedGreenBar from './redGreenbar/RedGreenBar'
 import A from "./client"
 
